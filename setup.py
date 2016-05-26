@@ -9,5 +9,5 @@ setup(
 	install_requires = ['pillow'],
 	author = "Hannah Ward",
 	author_email = "hannah.ward9001@gmail.com",
-	scripts = ["unique-image-sort.py"]
+	scripts = ["unique-image-sort.py", "image-blend.py"]
 )
