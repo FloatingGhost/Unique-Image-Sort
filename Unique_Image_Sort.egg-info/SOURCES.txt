@@ -1,7 +1,0 @@
-setup.py
-unique-image-sort.py
-Unique_Image_Sort.egg-info/PKG-INFO
-Unique_Image_Sort.egg-info/SOURCES.txt
-Unique_Image_Sort.egg-info/dependency_links.txt
-Unique_Image_Sort.egg-info/requires.txt
-Unique_Image_Sort.egg-info/top_level.txt
