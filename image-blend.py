@@ -17,23 +17,33 @@ r = random.Random()
 default_filename = time.strftime("blend-%H%M%S_{}.png".format(r.randint(1,100)))
 
 #CommandLine Arg parser
-parser = argparse.ArgumentParser(description='Blend Images')
+parser = argparse.ArgumentParser(description='Blend A Load Of Image')
 
-parser.add_argument('-o', metavar="[Filename]", help='The output file', default=default_filename)
+parser.add_argument('-o', metavar="filename", 
+      help='The output file - Defaults to blend-[unique-number].png', 
+      default=default_filename)
 
-parser.add_argument('DIRS', help="The input directories",
-		    metavar="DIR", nargs="+")
+parser.add_argument('DIRS', help="The input directory",
+		    metavar="directory", nargs="+")
 
-parser.add_argument('--ext', metavar='Ext', help='The extensions to use',
-		    default=["jpg", "png", "jpeg"], nargs="*")
+parser.add_argument('--ext', metavar='extension', 
+        help='The File Extensions we consider to be images -- Usually jpg, png',
+		    default=["jpg", "png", "jpeg"], nargs="+")
 
 parser.add_argument("-R", action="store_true", default=False,
 			help="Recursively look through the input directories")
 
-parser.add_argument("--alpha", help="Custom blend alpha multiplier", type=float, 
+parser.add_argument("--alpha", metavar="number", 
+                  help="Custom blend alpha multiplier", type=float, 
                   default=3)
 
-args = parser.parse_args()
+try:
+  args = parser.parse_args()
+except:
+  print("\nExample Usage:")
+  print("./image-blend.py ~/Pictures -R --alpha 0.2")
+
+  sys.exit(1)
 
 
 print("\nFloatingGhost's Image Blending Tool\nv0.1a")
